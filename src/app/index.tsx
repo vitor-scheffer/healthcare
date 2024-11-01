@@ -1,6 +1,7 @@
+import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
-export default function Index() {
+export default function SignIn() {
   return (
     <View
       style={{
@@ -10,6 +11,8 @@ export default function Index() {
       }}
     >
       <Text>Tela de login</Text>
+      <Link href={"/signOut"}> Ir para cadastro</Link>
+      <Link href={"/(tabs)"}> Ir para Home</Link>
     </View>
   );
 }

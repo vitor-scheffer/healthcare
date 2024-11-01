@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-export default function SignOut() {
+export default function Search() {
   return (
     <View>
-      <Text>Tela de cadastro</Text>
+      <Text>Pagina de pesquisa</Text>
     </View>
   );
 }

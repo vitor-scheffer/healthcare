@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-export default function SignOut() {
+export default function Home() {
   return (
     <View>
-      <Text>Tela de cadastro</Text>
+      <Text>Home</Text>
     </View>
   );
 }
