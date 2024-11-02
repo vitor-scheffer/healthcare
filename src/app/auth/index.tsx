@@ -1,16 +1,16 @@
-import { Link, router } from "expo-router";
 import { Text, View, Button } from "react-native";
+import { useAuth } from "@/src/hooks/useAuth";
 
 export default function SignIn() {
-  const handleNavigateHome = () => {
-    router.replace("/tabBar")
+  const { signIn } = useAuth();
+  const handleSignIn = () => {
+    signIn();
   };
 
   return (
     <View className="flex flex-1 justify-center items-center">
       <Text>Tela de autenticação</Text>
-      <Link href={"/auth/signUp"}> Ir para cadastro</Link>
-      <Button title="Login" onPress={handleNavigateHome} />
+      <Button title="Login" onPress={handleSignIn} />
     </View>
   );
 }

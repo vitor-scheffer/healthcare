@@ -1,15 +1,15 @@
-import { router, Stack } from "expo-router";
+import { Redirect, Stack } from "expo-router";
 import { useAuth } from "@/src/hooks/useAuth";
-import { useEffect } from "react";
+import { Loading } from "@/src/components";
 
 export default function AuthLayout() {
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
 
-  useEffect(() => {
-    if (user) {
-      router.replace("/tabBar");
-    }
-  }, []);
+  if (!!user) {
+    return <Redirect href={"/tabBar"} />;
+  }
+
+  if (isLoading) return <Loading />;
 
   return (
     <Stack>
@@ -17,7 +17,6 @@ export default function AuthLayout() {
         name="index"
         options={{ title: "Login", headerShown: false }}
       />
-      <Stack.Screen name="signUp" />
     </Stack>
   );
 }

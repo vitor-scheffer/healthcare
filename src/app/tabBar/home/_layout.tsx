@@ -1,9 +1,12 @@
 import { Stack, router } from "expo-router";
 import { Button } from "react-native";
+import { useAuth } from "@/src/hooks/useAuth";
 
 export default function HomeLayout() {
+  const { signOut } = useAuth();
+
   const handleLogout = () => {
-    router.replace("/auth");
+    signOut();
   };
 
   return (
