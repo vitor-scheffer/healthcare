@@ -1,8 +1,10 @@
 import { router } from "expo-router";
 import { Text, View, Button } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function SignIn() {
+export default function OnboardingThree() {
   const handleNavigateAuth = () => {
+    AsyncStorage.setItem('@isOnboardingCompleted', 'true');
     router.dismissAll()
     router.replace("/auth")
   };

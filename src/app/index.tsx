@@ -1,7 +1,7 @@
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { Text, View, Button } from "react-native";
 
-export default function SignIn() {
+export default function Onboarding() {
   const handleNavigateOnboarding = () => router.replace("/onboarding");
 
   return (

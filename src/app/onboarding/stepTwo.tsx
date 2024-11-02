@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
-export default function SignIn() {
+export default function OnboardingTwo() {
   return (
     <View className="flex flex-1 justify-center items-center">
       <Text>TELA 2 DO ONBOARDING</Text>
