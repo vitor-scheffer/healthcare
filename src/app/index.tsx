@@ -1,18 +1,14 @@
-import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { Link, router } from "expo-router";
+import { Text, View, Button } from "react-native";
 
 export default function SignIn() {
+  const handleNavigateOnboarding = () => router.replace("/onboarding");
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Tela de login</Text>
-      <Link href={"/signOut"}> Ir para cadastro</Link>
-      <Link href={"/(tabs)"}> Ir para Home</Link>
+    <View className="flex flex-1 justify-center items-center">
+      <Text>Seja bem vindo!</Text>
+
+      <Button title="Ir para onboarding" onPress={handleNavigateOnboarding} />
     </View>
   );
 }

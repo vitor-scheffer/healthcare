@@ -2,8 +2,8 @@ import { View, Text } from "react-native";
 
 export default function Search() {
   return (
-    <View>
-      <Text>Pagina de pesquisa</Text>
+    <View className="flex flex-1 justify-center items-center">
+      <Text>Tela de pesquisa</Text>
     </View>
   );
 }
