@@ -1,19 +1,23 @@
 import { router } from "expo-router";
-import { Text, View, Button } from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Onboarding } from "@/src/components";
+import Undraw from "../../assets/undraw_med.png";
 
 export default function OnboardingThree() {
   const handleNavigateAuth = () => {
-    AsyncStorage.setItem('@isOnboardingCompleted', 'true');
-    router.dismissAll()
-    router.replace("/auth")
+    AsyncStorage.setItem("@isOnboardingCompleted", "true");
+    router.dismissAll();
+    router.replace("/auth");
   };
 
   return (
-    <View className="flex flex-1 justify-center items-center">
-      <Text>TELA 3</Text>
-
-      <Button title="Finalizar Onboarding" onPress={handleNavigateAuth} />
-    </View>
+    <Onboarding
+      hasHeader={true}
+      image={Undraw}
+      title="Passo 3"
+      subtitle="Organize sua saúde de forma prática"
+      footerTitle="Finalizar"
+      handleFooterBtn={handleNavigateAuth}
+    />
   );
 }

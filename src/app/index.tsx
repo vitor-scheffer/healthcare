@@ -1,14 +1,16 @@
+import { Onboarding } from "@/src/components";
 import { router } from "expo-router";
-import { Text, View, Button } from "react-native";
 
-export default function Onboarding() {
-  const handleNavigateOnboarding = () => router.replace("/onboarding");
+import Undraw from "../assets/undraw_meditation.png";
 
+export default function OnboardingOne() {
   return (
-    <View className="flex flex-1 justify-center items-center">
-      <Text>Seja bem vindo!</Text>
-
-      <Button title="Ir para onboarding" onPress={handleNavigateOnboarding} />
-    </View>
+    <Onboarding
+      image={Undraw}
+      title="Passo 1"
+      subtitle="Organize sua saúde de forma prática"
+      footerTitle="Continuar"
+      handleFooterBtn={() => router.navigate("/onboarding/stepTwo")}
+    />
   );
 }
