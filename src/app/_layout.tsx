@@ -1,8 +1,8 @@
-import { Stack, router } from "expo-router";
+import { Slot, router } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
 import { AuthProvider } from "@/src/hooks/useAuth";
-import "../styles/global.css";
+import '@/src/styles/global.css';
 
 export default function OnboardingLayout() {
   useEffect(() => {
@@ -19,15 +19,7 @@ export default function OnboardingLayout() {
 
   return (
     <AuthProvider>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="index" />
-        <Stack.Screen name="onboarding/stepTwo" />
-        <Stack.Screen name="onboarding/stepThree" />
-      </Stack>
+      <Slot />
     </AuthProvider>
   );
 }

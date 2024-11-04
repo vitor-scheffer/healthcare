@@ -1,5 +1,6 @@
 import { router } from "expo-router";
 import { createContext, ReactNode, useContext, useState } from "react";
+import ApiService from "../data/services/api";
 
 type AuthContextData = {
   isLoading: boolean;
@@ -21,20 +22,14 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const [token, setToken] = useState<string | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fakeUser: User = {
-    email: "vitorscheffer.dev@gmail.com",
-    id: "1",
-    name: "Vitor Scheffer",
-  };
+  const api = ApiService.Instance;
 
   const signIn = async () => {
     setIsLoading(true);
-    await new Promise<void>((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 1000);
-    });
-    setUser(fakeUser);
+    const response = await api.requestObject<User>("/auth", "GET");
+    console.log(response)
+    if (response.success) setUser(response.data)
+
     setIsLoading(false);
   };
 
